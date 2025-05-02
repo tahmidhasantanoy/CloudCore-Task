@@ -1,5 +1,11 @@
+import SatisfactionBanner from "../../Components/SatisfactionBanner";
+
 const Home = () => {
-  return <></>;
+  return (
+    <>
+      <SatisfactionBanner />
+    </>
+  );
 };
 
 export default Home;
