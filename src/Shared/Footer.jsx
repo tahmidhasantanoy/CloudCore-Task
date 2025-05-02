@@ -33,7 +33,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <motion.a
-                href="#"
+                href="/"
                 className="bg-blue-500 p-2 rounded-full hover:bg-blue-600 transition duration-300"
                 whileHover={{ scale: 1.2, rotate: 10 }}
                 whileTap={{ scale: 0.9 }}
@@ -41,7 +41,7 @@ const Footer = () => {
                 <Facebook size={18} />
               </motion.a>
               <motion.a
-                href="#"
+                href="/"
                 className="bg-blue-400 p-2 rounded-full hover:bg-blue-500 transition duration-300"
                 whileHover={{ scale: 1.2, rotate: 10 }}
                 whileTap={{ scale: 0.9 }}
@@ -49,7 +49,7 @@ const Footer = () => {
                 <Twitter size={18} />
               </motion.a>
               <motion.a
-                href="#"
+                href="/"
                 className="bg-gradient-to-r from-purple-500 to-pink-500 p-2 rounded-full hover:from-purple-600 hover:to-pink-600 transition duration-300"
                 whileHover={{ scale: 1.2, rotate: 10 }}
                 whileTap={{ scale: 0.9 }}
@@ -80,7 +80,7 @@ const Footer = () => {
                 (item, index) => (
                   <motion.li key={item} whileHover={{ x: 5 }}>
                     <a
-                      href="#"
+                      href="/"
                       className="text-gray-400 hover:text-blue-400 transition duration-300 flex items-center"
                     >
                       <ChevronRight size={16} className="mr-2" />
