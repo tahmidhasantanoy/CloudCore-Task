@@ -10,6 +10,7 @@ import {
   Snowflake,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import logoImg from "../../public/Images/logo.png";
 
 const Footer = () => {
   return (
@@ -23,6 +24,7 @@ const Footer = () => {
             viewport={{ once: true }}
           >
             <div className="flex items-center space-x-2 mb-6">
+              <img className="w-12 h-12" src={logoImg} alt="Brand Logo" />
               <span className="text-blue-400 font-bold bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent text-2xl">
                 MordernMarket
               </span>
