@@ -9,6 +9,7 @@ const clothApi = baseApi.injectEndpoints({
         url: "/all/product/get",
         method: "GET",
       }),
+      providesTags: ["Product"], // cache for real time data get
     }),
 
     placeNewOrder: build.mutation({
@@ -18,6 +19,7 @@ const clothApi = baseApi.injectEndpoints({
         data: newOrderInfo,
         ContentType: "application/json",
       }),
+      invalidatesTags: ["Product"], // Invalide data after placing an order
     }),
   }),
   overrideExisting: false,
