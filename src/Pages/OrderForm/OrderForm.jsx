@@ -4,16 +4,14 @@ import { usePlaceNewOrderMutation } from "../../Redux/api/clothApi";
 import "react-toastify/dist/ReactToastify.css";
 
 const OrderForm = () => {
-  const [placeNewOrder, { isLoading, isError }] = usePlaceNewOrderMutation({
-    onSuccess: (data) => {
-      // console.log(data);
-    },
-    onError: (error) => {
-      // console.log(error);
-    },
-  });
+  const [placeNewOrder, { isLoading, isError }] = usePlaceNewOrderMutation();
 
-  const { register, handleSubmit, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
 
   const onSubmit = async (data) => {
     console.log("Raw form data:", data);
@@ -62,10 +60,13 @@ const OrderForm = () => {
             </label>
             <input
               type="text"
-              {...register("product_ids")}
+              {...register("product_ids", {
+                required: "Product IDs are required",
+              })}
               placeholder="e.g. 1,2"
               className="w-full border border-gray-300 rounded px-3 py-2"
             />
+            {errors.product_ids && <p className="text-red-500 text-sm">{errors.product_ids.message}</p>}
           </div>
 
           <div>
@@ -182,7 +183,7 @@ const OrderForm = () => {
           className="bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-3 rounded-md transition w-full md:w-auto"
           disabled={isLoading || isError}
         >
-          Place Order
+          {isLoading ? "Placing Order..." : "Place Order"}
         </button>
       </form>
     </div>
