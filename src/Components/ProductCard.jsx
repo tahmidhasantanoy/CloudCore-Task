@@ -19,7 +19,7 @@ const ProductCard = ({ product }) => {
     <motion.div
       whileHover={{ y: -6, scale: 1.02 }}
       transition={{ type: "spring", stiffness: 200, damping: 20 }}
-      className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-4 w-full max-w-md mx-auto group" // Set custom width here
+      className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-4 w-full max-w-md mx-auto group"
     >
       <div className="relative w-full h-64 rounded-xl overflow-hidden mb-4">
         <img

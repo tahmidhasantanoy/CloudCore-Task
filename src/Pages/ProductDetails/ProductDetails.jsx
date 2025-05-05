@@ -12,14 +12,6 @@ const ProductDetails = () => {
     return allProducts.find((singleProduct) => singleProduct.id === Number(id));
   }, [allProducts, id]);
 
-  if (!clickedProduct) {
-    return (
-      <div className="text-center py-20 text-red-500 font-semibold text-lg">
-        Product not found.
-      </div>
-    );
-  }
-
   if (isLoading) {
     return (
       <div className="flex items-center justify-center space-x-2 min-h-screen">
@@ -27,6 +19,14 @@ const ProductDetails = () => {
         <div className="w-6 h-6 border-4 border-blue-400 border-t-transparent rounded-full animate-spin"></div>
         <div className="w-7 h-7 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
         <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+
+  if (!clickedProduct) {
+    return (
+      <div className="text-center py-20 text-red-500 font-semibold text-lg">
+        Product not found.
       </div>
     );
   }
@@ -42,9 +42,7 @@ const ProductDetails = () => {
   } = clickedProduct;
 
   const imageURL = `https://admin.refabry.com/storage/product/${image}`;
-  const discountPercent = useMemo(() => {
-    return Math.round((discount_amount / buying_price) * 100);
-  }, [discount_amount, buying_price]);
+  const discountPercent = Math.round((discount_amount / buying_price) * 100);
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -75,7 +73,6 @@ const ProductDetails = () => {
           </div>
         </div>
 
-        {/* TODO : Description */}
         <div className="mt-6">
           <h4 className="text-xl font-semibold mb-2">Product Description</h4>
           <ul className="text-gray-700 space-y-2 list-disc list-inside whitespace-pre-line">
