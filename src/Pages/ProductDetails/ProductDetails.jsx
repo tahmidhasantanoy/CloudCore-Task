@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useGetAllProductsQuery } from "../../Redux/api/clothApi";
+import { useMemo } from "react";
 
 const ProductDetails = () => {
   const { data, isLoading } = useGetAllProductsQuery();
