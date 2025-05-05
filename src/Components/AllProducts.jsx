@@ -1,29 +1,70 @@
-import React, { useEffect, useState } from "react";
 import { useGetAllProductsQuery } from "../Redux/api/clothApi";
+import { useState, useMemo } from "react";
+import { ChevronRight, Snowflake } from "lucide-react";
+import { motion } from "framer-motion";
+import ProductCard from "./ProductCard";
 
 const AllProducts = () => {
-  const { data: AllProducts, isLoading, isError } = useGetAllProductsQuery([]);
-  console.log(AllProducts?.data?.data);
+  const { data, isLoading } = useGetAllProductsQuery();
+  // const [activeCategory, setActiveCategory] = useState("all");
+  const allProducts = data?.data?.data || [];
 
-  /* Now, I have to use useRedx Toolkit to manage the state (DONE) */
-  /* Configure the Redux toolkit (DONE) */
-  /* now, I want to configure the redux toolkit in a mordern way (Pending) T : 8:17 */
+  // const filteredProducts = useMemo(() => {
+  //   return activeCategory === "all"
+  //     ? allProducts
+  //     : allProducts.filter((item) => item.category === activeCategory);
+  // }, [activeCategory, allProducts]);
 
   if (isLoading) {
-    console.log("Loading"); 
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
-      <p className="text-9xl text-red-700">Loading</p>
-    </div>;
+    return (
+      <div className="flex items-center justify-center space-x-2 min-h-screen">
+        <div className="w-5 h-5 border-4 border-blue-400 border-t-transparent rounded-full animate-spin"></div>
+        <div className="w-6 h-6 border-4 border-blue-400 border-t-transparent rounded-full animate-spin"></div>
+        <div className="w-7 h-7 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+        <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
   }
-  return (
-    <div className="bg-gray-400 w-96 h96">
-      <p>All Products here</p>
 
-      {AllProducts?.data?.data?.map((item) => {
-        return <p>{item.name}</p>;
-      })}
-    </div>
+  return (
+    <section className="py-16 bg-white">
+      <div className="container mx-auto px-4">
+      <motion.div 
+      className="text-center mb-16"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7 }}
+      viewport={{ once: true }}
+    >
+      <div className="inline-block relative mb-6">
+        <motion.span 
+          className="absolute -top-5 -left-6 text-blue-200"
+          animate={{ rotate: [0, 15, 0] }}
+          transition={{ repeat: Infinity, duration: 5 }}
+        >
+          <Snowflake size={20} />
+        </motion.span>
+        <h2 className="text-3xl md:text-4xl font-bold mb-1 relative">Winter Collection 2025</h2>
+        <motion.span 
+          className="absolute -bottom-5 -right-6 text-blue-200"
+          animate={{ rotate: [0, -15, 0] }}
+          transition={{ repeat: Infinity, duration: 5, delay: 1 }}
+        >
+          <Snowflake size={20} />
+        </motion.span>
+      </div>
+      <p className="text-gray-600 max-w-2xl mx-auto">
+        Stay warm and stylish with our premium selection of hoodies and jackets designed for the winter season.
+      </p>
+    </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {allProducts?.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 
