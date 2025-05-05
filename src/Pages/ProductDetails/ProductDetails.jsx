@@ -3,13 +3,21 @@ import { useGetAllProductsQuery } from "../../Redux/api/clothApi";
 
 const ProductDetails = () => {
   const { data, isLoading } = useGetAllProductsQuery();
-  const allProducts = data?.data?.data || [];
-
   const { id } = useParams();
 
-  const clickedProduct = allProducts.find(
-    (singleProduct) => singleProduct.id === Number(id)
-  );
+  const allProducts = data?.data?.data || [];
+
+  const clickedProduct = useMemo(() => {
+    return allProducts.find((singleProduct) => singleProduct.id === Number(id));
+  }, [allProducts, id]);
+
+  if (!clickedProduct) {
+    return (
+      <div className="text-center py-20 text-red-500 font-semibold text-lg">
+        Product not found.
+      </div>
+    );
+  }
 
   if (isLoading) {
     return (
@@ -33,7 +41,9 @@ const ProductDetails = () => {
   } = clickedProduct;
 
   const imageURL = `https://admin.refabry.com/storage/product/${image}`;
-  const discountPercent = Math.round((discount_amount / buying_price) * 100);
+  const discountPercent = useMemo(() => {
+    return Math.round((discount_amount / buying_price) * 100);
+  }, [discount_amount, buying_price]);
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -41,6 +51,7 @@ const ProductDetails = () => {
         <img
           src={imageURL}
           alt={name}
+          loading="lazy"
           className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
         />
       </div>
