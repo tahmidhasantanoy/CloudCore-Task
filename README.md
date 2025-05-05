@@ -1,12 +1,55 @@
-# React + Vite
+# CloudCore Task
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+This is a web application built with React, Vite, Redux, and other modern technologies. The app is designed to handle cloud-based tasks efficiently.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Live Demo
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+You can view the live version of this app at the following link:
+
+[CloudCore Task Live Demo](https://cloudcore-task-theta.vercel.app/)
+---
+
+## Prerequisites
+
+Before running this project locally, make sure you have the following installed:
+
+- **Node.js**: 16.x or higher
+- **npm**: 8.x or higher
+
+You can download Node.js from [here](https://nodejs.org/).
+
+---
+
+## Setup Instructions
+
+1. **Fork the Repository**
+
+   - Fork this repository to your GitHub account.
+   - Clone the forked repository to your local machine:
+     ```bash
+     https://github.com/tahmidhasantanoy/CloudCore-Task
+     ```
+
+2. **Install Dependencies**
+
+   Navigate to the project directory and install the dependencies:
+
+   ```bash
+   cd cloudcore-task1
+   npm install
+   ```
+
+## Running the App Locally
+
+### 1. **Start the Development Server**
+
+After installing the dependencies, you can start the development server with the following command:
+
+```bash
+npm run dev
+
+```
