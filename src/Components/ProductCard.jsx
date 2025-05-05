@@ -46,11 +46,11 @@ const ProductCard = ({ product }) => {
       <div className="mt-4 mb-2">
         <div className="flex justify-center items-center gap-2">
           <span className="text-sm text-gray-400 line-through">
-            Tk {buying_price}
+            Tk {buying_price}/-
           </span>{" "}
           &nbsp;&nbsp;
           <span className="text-lg font-bold text-green-600">
-            Tk {discount_amount}
+            Tk {discount_amount}/-
           </span>
         </div>
       </div>

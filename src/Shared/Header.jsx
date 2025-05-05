@@ -27,21 +27,28 @@ const Header = () => {
             </motion.div>
           </Link>
 
-          {/* Menu section */}
           <nav className="hidden md:flex items-center space-x-10">
-            {["Home", "Shop", "Collection", "Sale"].map((item, index) => (
-              <motion.a
-                key={item}
-                href={item === "Home" ? "/" : `#${item.toLowerCase()}`}
-                className="text-gray-600 hover:text-blue-500 font-medium transition duration-200"
-                initial={{ opacity: 0, y: -5 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.1 * index }}
-                whileHover={{ scale: 1.1 }}
-              >
-                {item}
-              </motion.a>
-            ))}
+            {["Home", "Shop", "Collection", "Place Order"].map(
+              (item, index) => (
+                <motion.a
+                  key={item}
+                  href={
+                    item === "Home"
+                      ? "/"
+                      : item === "Place Order"
+                      ? "/placeOrder"
+                      : `#${item.toLowerCase()}`
+                  }
+                  className="text-gray-600 hover:text-blue-500 font-medium transition duration-200"
+                  initial={{ opacity: 0, y: -5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.1 * index }}
+                  whileHover={{ scale: 1.1 }}
+                >
+                  {item}
+                </motion.a>
+              )
+            )}
           </nav>
 
           {/* Cart section */}

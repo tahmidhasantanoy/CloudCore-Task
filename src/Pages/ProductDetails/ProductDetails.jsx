@@ -52,10 +52,10 @@ const ProductDetails = () => {
 
           <div className="mt-4 flex items-center space-x-4">
             <span className="text-gray-400 line-through text-xl">
-              Tk {price}
+              Tk {price}/-
             </span>
             <span className="text-green-600 font-bold text-2xl">
-              Tk {buying_price}
+              Tk {buying_price}/-
             </span>
             <span className="bg-red-600 text-white px-2 py-1 rounded-full text-xs font-semibold">
               Save {discountPercent}%

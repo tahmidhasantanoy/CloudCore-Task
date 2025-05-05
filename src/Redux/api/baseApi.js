@@ -5,7 +5,9 @@ import { axiosBaseQuery } from "../../helpers/axios/axiosBaseQuery";
 export const baseApi = createApi({
   reducerPath: "clothingBrandApi", // api name here
 
-  baseQuery: axiosBaseQuery({ baseUrl: "https://admin.refabry.com/api" }), //https://admin.refabry.com/api/all/product/get
+  baseQuery: axiosBaseQuery({ baseUrl: "https://admin.refabry.com/api" }),
+  //    https://admin.refabry.com/api/all/product/get
+  //   https://admin.refabry.com/api/public/order/create
 
   endpoints: () => ({}),
 });
