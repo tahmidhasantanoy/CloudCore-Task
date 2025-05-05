@@ -6,14 +6,9 @@ import ProductCard from "./ProductCard";
 
 const AllProducts = () => {
   const { data, isLoading } = useGetAllProductsQuery();
-  // const [activeCategory, setActiveCategory] = useState("all");
   const allProducts = data?.data?.data || [];
 
-  // const filteredProducts = useMemo(() => {
-  //   return activeCategory === "all"
-  //     ? allProducts
-  //     : allProducts.filter((item) => item.category === activeCategory);
-  // }, [activeCategory, allProducts]);
+ console.log(allProducts);
 
   if (isLoading) {
     return (
