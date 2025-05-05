@@ -19,14 +19,8 @@ const Hero = () => {
     );
   }
 
-  const {
-    name,
-    discount_amount,
-    buying_price,
-    price,
-    image,
-    category,
-  } = product;
+  const { name, discount_amount, buying_price, price, image, category } =
+    product;
 
   const imageURL = `https://admin.refabry.com/storage/product/${image}`;
   const discountPercent = Math.round((discount_amount / buying_price) * 100);
@@ -70,13 +64,19 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
             >
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-6 rounded-lg font-semibold text-lg w-full sm:w-auto flex items-center justify-center">
                   Shop Now
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </button>
               </motion.div>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <button className="px-8 py-6 border-2 border-blue-500 text-blue-500 rounded-lg font-semibold text-lg hover:bg-blue-50 w-full sm:w-auto">
                   Winter Collection
                 </button>
@@ -118,7 +118,10 @@ const Hero = () => {
                       </span>
                     )}
                   </div>
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
                     <Link to={`/productDetails/${product?.id}`}>
                       <button className="bg-blue-500 hover:bg-black px-6 py-3 text-sm rounded text-white">
                         View
