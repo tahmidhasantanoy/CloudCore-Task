@@ -4,6 +4,7 @@ import { Search, ShoppingCart, User, Menu } from "lucide-react";
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import logoImg from "../../public/Images/logo.png";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -12,17 +13,19 @@ const Header = () => {
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <motion.div
-            className="flex items-center gap-2"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <img src={logoImg} alt="Logo" className="w-12 h-12" />
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent">
-              MordernMarket
-            </span>
-          </motion.div>
+          <Link to="/">
+            <motion.div
+              className="flex items-center gap-2"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <img src={logoImg} alt="Logo" className="w-12 h-12" />
+              <span className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent">
+                MordernMarket
+              </span>{" "}
+            </motion.div>
+          </Link>
 
           {/* Menu section */}
           <nav className="hidden md:flex items-center space-x-10">
