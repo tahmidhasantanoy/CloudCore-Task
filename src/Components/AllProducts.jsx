@@ -8,7 +8,6 @@ const AllProducts = () => {
   const { data, isLoading } = useGetAllProductsQuery();
   const allProducts = data?.data?.data || [];
 
- console.log(allProducts);
 
   if (isLoading) {
     return (
